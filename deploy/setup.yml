@@ -1,0 +1,8 @@
+- name: Deploy Maven Artifact
+  hosts: local
+  become: yes
+  tasks:
+    - name: Copy artifact
+      copy:
+        src: /var/lib/jenkins/workspace/HelloMaven/target/*.jar
+        dest: /home/sohamgupta/selenium/HelloMaven/deploy
