@@ -1,0 +1,45 @@
+# Maven target directory
+/target/
+
+# Logs
+*.log
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# NetBeans
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment / secret files
+.env
+*.key
+*.pem
+*.crt
+
+# Maven wrapper files (optional - include only if not using the wrapper)
+#mvnw
+#mvnw.cmd
+#.mvn/
+
+# JEnv or SDKMAN-specific
+.java-version
