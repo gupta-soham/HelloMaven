@@ -3,6 +3,6 @@
   tasks:
     - name: Copy artifact
       copy:
-        src: "{{ workspace }}/target/*.jar"
+        src: /home/sohamgupta/jenkins_home/workspace/HelloMaven/target/*.jar
         dest: /home/sohamgupta/selenium/HelloMaven/deploy
         remote_src: yes
