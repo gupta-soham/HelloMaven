@@ -1,6 +1,5 @@
 - name: Deploy Maven Artifact
   hosts: local
-  become: yes
   tasks:
     - name: Copy artifact
       copy:
