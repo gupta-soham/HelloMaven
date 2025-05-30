@@ -1,8 +1,14 @@
 - name: Deploy Maven Artifact
-  hosts: local
+  hosts: all
   tasks:
-    - name: Copy artifact
+    - name: Find .jar files
+      find:
+        paths: /home/sohamgupta/jenkins_home/workspace/HelloMaven/target
+        patterns: "*.jar"
+      register: found_jars
+
+    - name: Copy artifact(s)
       copy:
-        src: /home/sohamgupta/jenkins_home/workspace/HelloMaven/target/*.jar
-        dest: /home/sohamgupta/selenium/HelloMaven/deploy
-        remote_src: yes
+        src: "{{ item.path }}"
+        dest: /home/sohamgupta/selenium/HelloMaven/deploy/
+      with_items: "{{ found_jars.files }}"
