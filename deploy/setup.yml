@@ -1,14 +1,17 @@
 - name: Deploy Maven Artifact
   hosts: all
+  vars:
+    target_dir: "{{ ansible_env.PWD }}/../target"
+    deploy_dir: "{{ ansible_env.PWD }}"
   tasks:
     - name: Find .jar files
       find:
-        paths: /home/sohamgupta/jenkins_home/workspace/HelloMaven/target
+        paths: "{{ target_dir }}"
         patterns: "*.jar"
       register: found_jars
 
     - name: Copy artifact(s)
       copy:
         src: "{{ item.path }}"
-        dest: /home/sohamgupta/selenium/HelloMaven/deploy/
-      with_items: "{{ found_jars.files }}"
+        dest: "{{ deploy_dir }}/"
+      loop: "{{ found_jars.files }}"
